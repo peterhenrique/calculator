@@ -1,0 +1,31 @@
+.caixa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.botões {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: gray;
+    height: 20px;
+    width: 20px;
+}
+
+
+.display {
+    display: flex;
+    background-color: lightgrey;
+    width: 400px;
+    height: 80px;
+    font-size: large;
+
+}
+
+.display-value{
+    display: flex;
+}
