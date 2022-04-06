@@ -247,6 +247,41 @@ divided.addEventListener('click', () => {
 
 })
 
+const dot = document.querySelector('#dot');
+dot.addEventListener('click', () =>{
+    function checker(number) {
+        if (number.includes('.')){
+            return true
+        } else { 
+            return false}
+    }
+    
+  let dotter = () => {
+    if (firstStatus === false){
+        if (checker(first) === false)
+         {first.push('.')
+         arrdispls.push('.')
+         strdispl = arrdispls.join('')
+         showdisplay.textContent = strdispl}
+    }else if (checker(second) === false){
+        second.push('.')
+        arrdispls.push('.')
+         strdispl = arrdispls.join('')
+         showdisplay.textContent = strdispl
+    }}
+
+    console.log(first)
+
+    dotter()
+    
+        
+     
+   
+    
+    //checar em qual coiso esta;
+    //checar se tem um ponto já;
+})
+
 
 const C = document.querySelector('#C');
 C.addEventListener('click', () =>{
