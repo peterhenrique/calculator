@@ -5,6 +5,8 @@ let display = document.getElementById('display');
 let showdisplay = document.getElementById('displayValue');
 showdisplay.textContent =  `${displayValue}`
 
+
+
 // here we shall have the arrays
 let first = [];
 let second = [];
@@ -210,8 +212,8 @@ minus.addEventListener('click', () => {
     firstOperator = first.join('')
     console.log(firstOperator)
     operation()
-    operate(firstOperator,sign,secondOperator)
-
+    if (secondOperator != []) {
+        operate(firstOperator,sign,secondOperator)}
 })
 
 
@@ -272,10 +274,7 @@ dot.addEventListener('click', () =>{
 
     console.log(first)
 
-    dotter()
-    
-        
-     
+    dotter()   
    
     
     //checar em qual coiso esta;
@@ -285,33 +284,54 @@ dot.addEventListener('click', () =>{
 
 const C = document.querySelector('#C');
 C.addEventListener('click', () =>{
-// here we shall have the arrays
- first = [];
- second = [];
+    // here we shall have the arrays
+    first = [];
+    second = [];
 
-// status
- firstStatus = false
- secondStatus = false
- secondOnward = false
+    // status
+    firstStatus = false
+    secondStatus = false
+    secondOnward = false
 
-// the operators
- firstOperator = ''
- secondOperator = ''
-//signs
- sign = [];    
- showdisplay.textContent = displayValue;
+    // the operators
+    firstOperator = ''
+    secondOperator = ''
+    //signs
+    sign = [];
+    displayValue = 0;    
+    arrdispls = [] 
+    showdisplay.textContent = displayValue;
 })
 
 const equal = document.querySelector('#equal');
 equal.addEventListener('click', () => {
     operation();
     operate(firstOperator,sign,secondOperator)
+    sign = []
 
     // operate(firstOperator,sign,secondOperator)
 
     // console.log(operate(firstOperator,sign,secondOperator))   
+      
+
+})
+const back = document.querySelector('#back');
+back.addEventListener('click', () => {
+    let deleted = first.splice(-1)
+    console.log(deleted)
+
+    arrdispls.splice(-1)
+    strdispl = arrdispls.join('')
+    if (second === [] ){
+        first = deleted
+
+    } else{
+    second.splice(-1)
+        console.log(second)         
     
-    
+    }
+    showdisplay.textContent = strdispl
+
 
 })
 
@@ -324,6 +344,11 @@ const divide = (a,b) => a/b;
 
 
 const operate = function (a,sign,b) {
+    if (sign === '/' || b === '0'){
+        alert ('you cannot do that')
+        
+    } else {
+
     if (sign >= 1) {
         sign.splice(0,)
     }
@@ -342,23 +367,33 @@ const operate = function (a,sign,b) {
     }
 
     arrdispls = [];
-    arrdispls.push(`${displayValue}`)
+    arrdispls.push(displayValue)
+    arrdispls = arrdispls.join('').split('')
     console.log(arrdispls)
     strdispl = ''
-    console.log(arrdispls)
+    console.log(arrdispls);
+    first =[];
+    firstStatus = false
 
 
     second = [];
     secondOperator = []
     secondOnward = true
-    sign = []
     console.log(sign)
-    
+
+    console.log(firstOperator)
+    firstOperator = []
+    console.log(firstOperator)
 
     showdisplay.textContent = `${displayValue}`;
-    firstOperator = displayValue;   
-    
+    first.push(displayValue)
+    first = first.join('').split('')
+    console.log(first)
+    firstOperator = `${displayValue}`;   
+    console.log(firstOperator);
+    strdispl = `${displayValue}`;
 
+    }
 }
 
 console.log(first)
